@@ -1,4 +1,4 @@
-# UnityFogger
+# Unity Fogger
 A small and lightweight Unity Player patcher for hiding splash logos.
 
 ## Usage:

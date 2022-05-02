@@ -8,6 +8,8 @@ Run the utility then enter the path to UnityPlayer.dll.
 
 This utility simply swaps out the shader used by the splash screen for rendering logos. The splash screen in Unity's player, by default, uses the built-in *Sprites/Default* shader for rendering logos and the *Hidden/InternalErrorShader* shader as a fallback. For the best results, go into your projects **Player Settings** and ensure that both the **Logos** list is empty and your **Splash Screen Duration** is 2 seconds. To adjust the splash screen duration for already compiled games then you will want to modify the *GlobalGameManagers* file. I have done some work reverse engineering such file which you can find below.
 
+### GlobalGameManagers
+
 | Offset          | Size (bytes) | Field               | Data Type | Endianness | Purpose                     |
 |-----------------|--------------|---------------------|-----------|------------|-----------------------------|
 | 0x10BC          | 4            | Unknown             | Int32     | BE         | The number of logo entries. |

@@ -33,7 +33,7 @@ Splash screen logo entries are sequentially stored in 128-bit (16 bytes) data bl
 
 | Value (Int32) | Name             | Meaning |
 |---------------|------------------|---------|
-| 2             | All Sequential   | Logos will be drawn one after the other. |
 | 1             | Unity Logo Below | The Unity logo will be drawn underneath other logos. This can also be used to force the Unity logo to the bottom of the splash screen. |
+| 2             | All Sequential   | Logos will be drawn one after the other. |
 
 It is worth mentioning that setting `m_SplashScreenDrawMode` to any value other than **'2'** will cause the player to draw the Unity logo underneath other logos. I have yet to investigate further and assume this behaviour was intentionally implemented as a fallback.

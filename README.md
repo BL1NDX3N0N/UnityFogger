@@ -6,7 +6,7 @@ Run the utility then enter the path to UnityPlayer.dll.
 
 ## How it works:
 
-This utility simply swaps out the shader used by Unity's player for rendering logos on the splash screen. Unity's player, by default, will use the built-in Sprites/Default shader for rendering logos on the ssplash screen and Hidden/InternalErrorShader as a fallback. For the best results, go into the Unity Player Settings in your project and ensure the logo list is empty and that your splash screen duration is 2 seconds.
+This utility simply swaps out the shader used by Unity's player for rendering logos on the splash screen. Unity's player, by default, will use the built-in Sprites/Default shader for rendering logos on the ssplash screen and Hidden/InternalErrorShader as a fallback. For the best results, go into the Player Settings in your project and ensure the Logos list is empty and that your Splash Screen Duration is 2 seconds.
 
 If using this tool to patch the Unity Player shipped by another developer then you must ensure all of the above is set the same, if not, these settings can be tweaked from inside of the GlobalGameManagers file. I Have done some work reverse engineering such file and will provide my findings below.
 

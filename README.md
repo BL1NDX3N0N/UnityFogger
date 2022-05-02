@@ -6,9 +6,7 @@ Run the utility then enter the path to UnityPlayer.dll.
 
 ## How it works:
 
-This utility simply swaps out the shader used by Unity's player for rendering logos on the splash screen. Unity's player, by default, will use the built-in Sprites/Default shader for rendering logos on the ssplash screen and Hidden/InternalErrorShader as a fallback. For the best results, go into the Player Settings in your project and ensure the Logos list is empty and that your Splash Screen Duration is 2 seconds.
-
-If using this tool to patch the Unity Player shipped by another developer then you must ensure all of the above is set the same, if not, these settings can be tweaked from inside of the GlobalGameManagers file. I Have done some work reverse engineering such file and will provide my findings below.
+This utility simply swaps out the shader used by the splash screen for rendering logos. The splash screen in Unity's player, by default, uses the built-in *Sprites/Default* shader for rendering logos and the *Hidden/InternalErrorShader* shader as a fallback. For the best results, go into your projects **Player Settings** and ensure that both the **Logos** list is empty and your **Splash Screen Duration** is 2 seconds. To adjust the splash screen duration for already compiled games then you will want to modify the *GlobalGameManagers* file. I have done some work reverse engineering such file which you can find below.
 
 | Offset          | Size (bytes) | Field               | Data Type | Endianness | Purpose                     |
 |-----------------|--------------|---------------------|-----------|------------|-----------------------------|
@@ -17,7 +15,7 @@ If using this tool to patch the Unity Player shipped by another developer then y
 
 #### Entries in m_SplashScreenLogos:
 
-Splash screen logo entries are contained in blocks spanning 16 bytes. Here is an example entry:
+Splash screen logo entries are sequentially stored in 128-bit (16 bytes) data blocks with no padding between each block. Here is an example entry:
 
 `02000000 A4280000 00000000 00000040`
 
@@ -36,4 +34,4 @@ Splash screen logo entries are contained in blocks spanning 16 bytes. Here is an
 | 2             | All Sequential   | Logos will be drawn one after the other. |
 | 1             | Unity Logo Below | The Unity logo will be drawn underneath other logos. This can also be used to force the Unity logo to the bottom of the splash screen. |
 
-It is worth mentioning that setting `m_SplashScreenDrawMode` to any value other than `2` will cause the player to draw the Unity logo underneath other logos. I have yet to investigate further and assume this behaviour was intentionally implemented as a fallback.
+It is worth mentioning that setting `m_SplashScreenDrawMode` to any value other than **'2'** will cause the player to draw the Unity logo underneath other logos. I have yet to investigate further and assume this behaviour was intentionally implemented as a fallback.

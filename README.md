@@ -21,7 +21,7 @@ Splash screen logo entries are sequentially stored in 128-bit (16 bytes) data bl
 
 `02000000 A4280000 00000000 00000040`
 
-| Offset | Size (bytes) | Field                  | Data Type | Endianness | Purpose                   |
+| Offset (relative) | Size (bytes) | Field                  | Data Type | Endianness | Purpose                   |
 |--------|--------------|------------------------|-----------|------------|---------------------------|
 | 0x00   | 4            | m_SplashScreenDrawMode | Int32     | BE         | Sets the logos draw mode. |
 | 0x04   | 4            | Unknown                | N/A       | N/A        | Appears to be a pointer to the logo. Unity will use `0xA4280000` for its logo. |
@@ -31,7 +31,7 @@ Splash screen logo entries are sequentially stored in 128-bit (16 bytes) data bl
 
 #### m_SplashScreenDrawMode:
 
-| Value (Int32) | Name             | Meaning |
+| Value (int32) | Name             | Meaning |
 |---------------|------------------|---------|
 | 1             | Unity Logo Below | The Unity logo will be drawn underneath other logos. This can also be used to force the Unity logo to the bottom of the splash screen. |
 | 2             | All Sequential   | Logos will be drawn one after the other. |
